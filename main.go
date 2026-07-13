@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"time"
 )
 
 type Weather struct {
@@ -175,8 +176,12 @@ func main() {
 	fmt.Printf("Wind: %.1f kph (%s)\n", weather.Current.WindKph, weather.Current.WindDir)
 
 	fmt.Println("\nForecast for the next few days:")
+	today := time.Now().Format("2006-01-02")
 	for _, day := range weather.Forecast.Forecastday {
+		if day.Date <= today {
+			continue
+		}
 		fmt.Printf("Date: %s | Max Temp: %.1f°C | Min Temp: %.1f°C | Condition: %s\n",
 			day.Date, day.Day.MaxtempC, day.Day.MintempC, day.Day.Condition.Text)
 	}
-} 
+}  
