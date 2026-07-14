@@ -173,7 +173,7 @@ func main() {
 	fmt.Printf("Temperature: %.1f°C / %.1f°F\n", weather.Current.TempC, weather.Current.TempF)
 	fmt.Printf("Condition: %s\n", weather.Current.Condition.Text)
 	fmt.Printf("Humidity: %d%%\n", weather.Current.Humidity)
-	fmt.Printf("Wind: %.1f kph (%s)\n", weather.Current.WindKph, weather.Current.WindDir)
+	// fmt.Printf("Wind: %.1f kph (%s)\n", weather.Current.WindKph, weather.Current.WindDir)
 
 	fmt.Println("\nForecast for the next few days:")
 	today := time.Now().Format("2006-01-02")
